@@ -16,27 +16,15 @@
  */
 package br.com.desafio1.calculadora;
 
+import java.util.Scanner;
+
 public class Calculadora {
 	
-	/**
-	 * O que compõe/tem em uma calculadora?
-	 * números/valores, operações e um resultado
-	 */
 	public String operacao;
-	public int valor1;
-	public int valor2;
+	public static int valor1;
+	public static int valor2;
 	public static int resultado;
-	/**
-	 * Método para soma
-	 * deverá selecionar a opção referente a operação de soma
-	 * informar o valor 1, a seguir o valor 2 e por fim apresentar o resultado
-	 * 
-	 * 
-	 * Solução: verifiquei e li sobre classes, atributos e métodos
-	 * achei dificuldade no poder verificar se o método funciona
-	 * 
-	 */
-	
+		
 //	public void somar(int valor1, int valor2){
 //		this.resultado = valor1 + valor2;
 //	}
@@ -45,39 +33,41 @@ public class Calculadora {
 		return resultado = valor1 + valor2;
 	}
 	
-//	public void subtrair(int valor1, int valor2){
-//		this.resultado = valor1 - valor2;
-//	}
-	
 	public static int subtrair(int valor1, int valor2){
 		return resultado = valor1 - valor2;
 	}
-	
-//	public void dividir(int valor1, int valor2){
-//		this.resultado = valor1 / valor2;
-//	}
 	
 	public static int dividir(int valor1, int valor2){
 		return resultado = valor1 / valor2;
 	}
 	
-//	public void multiplicar(int valor1, int valor2){
-//		this.resultado = valor1 * valor2;
-//	}
-	
 	public static int multiplicar(int valor1, int valor2){
 		return resultado = valor1 * valor2;
 	}
 	
-//	public static String escolherOperacao(){
-//		return String operacao;
-//	}
-	
 	public static void main(String[] args){
 		
-		System.out.println("Bem vindo à Calculadora no console!");
-		System.out.println("Informe logo abaixo qual operação deseja realizar \nConsidere: 1- Soma, 2- Subtrai, 3- Dividi e 4- Multiplica \n");
-		System.out.println(Calculadora.somar(4,6));
+		System.out.println("Bem vindo à Calculadora no console!\n");
+		
+		System.out.println("Escreva logo abaixo, qual operação deseja realizar \n \nConsidere: 1- Somar, 2- Subtrair, 3- Dividir, 4- Multiplicar e 0- Sair \n");
+		
+		Scanner entrada = new Scanner(System.in);
+		
+		String operacao = entrada.nextLine();
+		if("1".equals(operacao)){
+			Calculadora s = new Calculadora();
+			s.somar(valor1, valor2);
+		}
+		
+		System.out.println("Digite o valor 1:");
+		valor1 = entrada.nextInt();
+		
+		System.out.println("Digite o valor 2:");
+		valor2 = entrada.nextInt();
+		
+		
+		System.out.println("Resultado da operação = "+ Calculadora.somar(valor1,valor2));
+	
 	}
 	
 }
