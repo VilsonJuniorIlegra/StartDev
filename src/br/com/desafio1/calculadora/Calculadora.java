@@ -45,6 +45,10 @@ public class Calculadora {
 		return resultado = valor1 * valor2;
 	}
 	
+	public void sair(){
+		System.out.println("Saindo...");
+	}
+	
 	public static void main(String[] args){
 		
 		System.out.println("Bem vindo à Calculadora no console!\n");
@@ -54,19 +58,60 @@ public class Calculadora {
 		Scanner entrada = new Scanner(System.in);
 		
 		String operacao = entrada.nextLine();
-		if("1".equals(operacao)){
-			Calculadora s = new Calculadora();
-			s.somar(valor1, valor2);
+		
+		switch(operacao){
+		
+			case "1":
+				Calculadora soma = new Calculadora();
+				soma.somar(valor1, valor2);
+				System.out.println("Digite o valor 1:");
+				valor1 = entrada.nextInt();
+				System.out.println("Digite o valor 2:");
+				valor2 = entrada.nextInt();
+				System.out.println("Resultado da operação = "+ Calculadora.somar(valor1,valor2));
+				break;
+			
+			case "2":
+				Calculadora subtrai = new Calculadora();
+				subtrai.subtrair(valor1, valor2);
+				break;
+				
+			case "3":
+				Calculadora dividi = new Calculadora();
+				dividi.dividir(valor1, valor2);
+				break;
+				
+			case "4":
+				Calculadora multiplica = new Calculadora();
+				multiplica.multiplicar(valor1, valor2);
+				break;
+			
+			case "0":
+				Calculadora sai = new Calculadora();
+				sai.sair();
+				break;
+			
+			default:
+				System.out.println("Opção de operação inválida, tente novamente.");
+				break;
+				
 		}
 		
-		System.out.println("Digite o valor 1:");
-		valor1 = entrada.nextInt();
+		System.out.println("qual operacao agora?");
 		
-		System.out.println("Digite o valor 2:");
-		valor2 = entrada.nextInt();
+//		if("1".equals(operacao)){
+//			Calculadora s = new Calculadora();
+//			s.somar(valor1, valor2);
+//		}
 		
-		
-		System.out.println("Resultado da operação = "+ Calculadora.somar(valor1,valor2));
+//		System.out.println("Digite o valor 1:");
+//		valor1 = entrada.nextInt();
+//		
+//		System.out.println("Digite o valor 2:");
+//		valor2 = entrada.nextInt();
+//		
+//		
+//		System.out.println("Resultado da operação = "+ Calculadora.somar(valor1,valor2));
 	
 	}
 	
