@@ -1,0 +1,13 @@
+Comandos iniciais e úteis para quem está conhecendo a relação Git e GitHub
+
+* git config --global user.name "perfil no github"
+* git config --global user.email "email de cadastro no github"
+* git config --list (verifica status do git)
+
+	***criar uma pasta local é um bom tipo de organização***
+* git clone "URL do repositorio"
+* git status
+* git add .
+* git add (arquivo)
+* git commit -m "texto qualquer"
+* git push origin master/"nome de outro branch"
