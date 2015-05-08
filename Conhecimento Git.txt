@@ -11,3 +11,9 @@ Comandos iniciais e úteis para quem está conhecendo a relação Git e GitHub
 * git add (arquivo)
 * git commit -m "texto qualquer"
 * git push origin master/"nome de outro branch"
+
+
+	***procurar maneira de adicionar um arquivo independentemente do
+	do local onde esse esteja dentro de um computador, exemplo, possuo
+	a pasta Git, mas quero adicionar ao meu github um arquivo localizado
+	em outra pasta...é possível?
