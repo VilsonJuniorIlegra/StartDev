@@ -1,7 +1,28 @@
+/**
+ * Desenvolver uma calculadora com as quatro operações básicas:
+ * A calculadora deve rodar no console/terminal
+ * Exibir um menu básico para o usuário com as seguintes operações:
+ * - somar
+ * - subtrair
+ * - multiplicar
+ * - dividir
+ * - sair
+ * O programa só pode terminar quando o usuário selecionar a opção sair
+ * Depois de realizar uma das operações matemática o sistema de exibir novamente o menu
+ * O programa pode ter apenas uma classe mas deve ter mais de 1 método
+ * Ter testes para cada operação
+ * O projeto deve estar no GITHUB
+ * 
+ */
+
 package br.com.desafio1.calculadora;
 
 import java.util.Scanner;
 
+/**
+ * @author Administrador
+ *
+ */
 public class Calculadora {
 
 	public static String operacao;
