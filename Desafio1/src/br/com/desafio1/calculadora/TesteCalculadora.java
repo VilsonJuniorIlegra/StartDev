@@ -46,8 +46,4 @@ public class TesteCalculadora {
 		
 	}
 
-	@Test
-	public void testeSair(){
-		
-	}
 }
