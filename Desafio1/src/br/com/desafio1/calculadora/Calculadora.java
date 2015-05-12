@@ -20,7 +20,7 @@ package br.com.desafio1.calculadora;
 import java.util.Scanner;
 
 /**
- * @author Administrador
+ * @author Vilson Júnior
  *
  */
 public class Calculadora {
