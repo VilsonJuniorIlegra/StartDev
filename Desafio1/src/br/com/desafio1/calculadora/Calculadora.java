@@ -52,15 +52,8 @@ public class Calculadora {
 
 		while (operacao != "0") {
 
-<<<<<<< HEAD
 			System.out.println("\nDigite uma das opções de operação que deseja realizar, considerando:");
 			System.out.println("1- Somar \n2- Subtrair \n3- Dividir \n4- Multiplicar \n0- Sair");
-=======
-			System.out
-					.println("\nDigite uma das opções de operação que deseja realizar, considerando:");
-			System.out
-					.println("1- Somar \n2- Subtrair \n3- Dividir \n4- Multiplicar \n0- Sair");
->>>>>>> 88b68e7b93fa638dd0606313213890a3730f18f5
 			Scanner entrada = new Scanner(System.in);
 			operacao = entrada.nextLine();
 
@@ -69,70 +62,41 @@ public class Calculadora {
 				valor1 = entrada.nextFloat();
 				System.out.println("Digite o valor 2:");
 				valor2 = entrada.nextFloat();
-<<<<<<< HEAD
 				System.out.println("Resultado da Soma é: " + Calculadora.somar(valor1, valor2));
-				
-=======
-				System.out.println("Resultado da Soma é: "
-						+ Calculadora.somar(valor1, valor2));
-				// System.out.println("\nDigite a próxima operação: ");
->>>>>>> 88b68e7b93fa638dd0606313213890a3730f18f5
+				System.out.println("Resultado da Soma é: " + Calculadora.somar(valor1, valor2));
 			} else if (operacao.equals("2")) {
 				System.out.println("Digite o valor 1:");
 				valor1 = entrada.nextFloat();
 				System.out.println("Digite o valor 2:");
 				valor2 = entrada.nextFloat();
-<<<<<<< HEAD
 				System.out.println("Resultado da Subtração é: "	+ Calculadora.subtrair(valor1, valor2));
-				
-=======
-				System.out.println("Resultado da Subtração é: "
-						+ Calculadora.subtrair(valor1, valor2));
-				System.out.println("\nDigite a próxima operação: ");
->>>>>>> 88b68e7b93fa638dd0606313213890a3730f18f5
+				System.out.println("Resultado da Subtração é: "	+ Calculadora.subtrair(valor1, valor2));
 			} else if (operacao.equals("3")) {
 				System.out.println("Digite o valor 1:");
 				valor1 = entrada.nextFloat();
 				System.out.println("Digite o valor 2:");
 				valor2 = entrada.nextFloat();
-<<<<<<< HEAD
 				System.out.println("Resultado da Divisão é: " + Calculadora.dividir(valor1, valor2));
-				
-=======
-				System.out.println("Resultado da Divisão é: "
-						+ Calculadora.dividir(valor1, valor2));
-				System.out.println("\nDigite a próxima operação: ");
->>>>>>> 88b68e7b93fa638dd0606313213890a3730f18f5
+				System.out.println("Resultado da Divisão é: " + Calculadora.dividir(valor1, valor2));
 			} else if (operacao.equals("4")) {
 				System.out.println("Digite o valor 1:");
 				valor1 = entrada.nextFloat();
 				System.out.println("Digite o valor 2:");
 				valor2 = entrada.nextFloat();
-<<<<<<< HEAD
 				System.out.println("Resultado da Multiplicação  é: " + Calculadora.multiplicar(valor1, valor2));
-				
-=======
-				System.out.println("Resultado da Multiplicação  é: "
-						+ Calculadora.multiplicar(valor1, valor2));
-				System.out.println("\nDigite a próxima operação: ");
->>>>>>> 88b68e7b93fa638dd0606313213890a3730f18f5
+				System.out.println("Resultado da Multiplicação  é: " + Calculadora.multiplicar(valor1, valor2));
 			} else if (operacao.equals("0")) {
 				System.out.println("Você encerrou a calculadora!");
 				return;
 			} else {
 				System.out.println("Operação do tipo inválida");
-<<<<<<< HEAD
-=======
-				System.out.println("\nDigite a próxima operação: ");
->>>>>>> 88b68e7b93fa638dd0606313213890a3730f18f5
 			}
 
 		}
 
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 88b68e7b93fa638dd0606313213890a3730f18f5
+
+
+
