@@ -1,0 +1,23 @@
+package foo;
+
+public class MinhaClasse {
+
+	private static int atributo2 = 5;
+	private int atributo1 = 10;
+
+	public int getAtributo1() {
+		return atributo1;
+	}
+	
+	public static int getAtributo2() {
+		return atributo2;
+	}
+	
+	public void setAtributo1(int atributo1) {
+		this.atributo1 = atributo1;
+	}
+	
+	public static void incrementoAtributo2(int atributo2) {
+		MinhaClasse.atributo2++;
+	}
+}

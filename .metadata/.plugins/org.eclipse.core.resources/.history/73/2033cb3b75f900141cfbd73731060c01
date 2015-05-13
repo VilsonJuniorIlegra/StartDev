@@ -1,0 +1,26 @@
+package foo;
+
+public class MinhaClasse {
+
+	// variavel de CLASSE
+	private static int variavelClasse = 5;
+	
+	// variavel de INSTANCIA
+	private int atributo1 = 10;
+
+	public int getAtributo1() {
+		return atributo1;
+	}
+	
+	public static int getAtributo2() {
+		return variavelClasse;
+	}
+	
+	public void incAtributo1() {
+		this.atributo1++;
+	}
+	
+	public static void incrementoAtributo2() {
+		MinhaClasse.variavelClasse++;
+	}
+}

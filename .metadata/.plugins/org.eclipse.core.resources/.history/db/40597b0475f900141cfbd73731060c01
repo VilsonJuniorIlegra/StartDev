@@ -1,0 +1,27 @@
+package foo;
+
+public class Teste1 {
+
+	public static void main (String[] args) {
+
+		MinhaClasse instancia1 = new MinhaClasse();
+		
+		instancia1.getAtributo1();
+		instancia1.getAtributo2();
+		
+		instancia1.incAtributo1();
+		instancia1.incrementoAtributo2();
+		
+		instancia1.getAtributo1();
+		instancia1.getAtributo2();
+		
+		
+		MinhaClasse instancia2 = new MinhaClasse();
+
+		instancia2.getAtributo1();
+		instancia2.getAtributo2();
+		
+		
+	}
+	
+}
