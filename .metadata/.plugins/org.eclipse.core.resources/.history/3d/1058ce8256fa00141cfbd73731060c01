@@ -1,0 +1,15 @@
+package br.com.desafio1codereview.calculdoratest;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class CalculdoraTest {
+
+	@Test
+	public void somarTest() {
+		Calculadora calculadoraTest = new Calculadora();
+		assertEquals(8, calculadoraTest.somar(4,4), 0);
+	}
+
+}

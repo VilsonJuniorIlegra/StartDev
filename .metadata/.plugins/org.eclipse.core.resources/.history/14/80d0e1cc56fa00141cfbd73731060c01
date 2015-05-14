@@ -1,0 +1,15 @@
+package br.com.desafio1codereview.calculdoratest;
+
+public class Calculadora {
+
+	public float somar(float v1, float v2) {
+		// TODO Auto-generated method stub
+		return v1 + v2;
+	}
+
+	public float subtrair(float v1, float v2) {
+		// TODO Auto-generated method stub
+		return v1 - v2;
+	}
+
+}

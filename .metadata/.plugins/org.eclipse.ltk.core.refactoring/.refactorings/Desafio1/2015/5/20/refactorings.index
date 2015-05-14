@@ -1,1 +1,9 @@
 1431353072657	Delete elements
+1431622237242	Rename type 'CalculadoraMenu'
+1431627711759	Rename type 'Calculadora'
+1431627754490	Rename type 'CalculadoraTest'
+1431628008010	Extract method 'menuSoma'
+1431628040568	Extract method 'menuSubtrair'
+1431628051026	Extract method 'extracted'
+1431628093943	Extract method 'menuMultiplicar'
+1431632760445	Extract method 'infoMenu'

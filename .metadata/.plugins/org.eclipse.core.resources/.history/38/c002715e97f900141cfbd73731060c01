@@ -1,0 +1,102 @@
+/**
+ * Desenvolver uma calculadora com as quatro operações básicas:
+ * A calculadora deve rodar no console/terminal
+ * Exibir um menu básico para o usuário com as seguintes operações:
+ * - somar
+ * - subtrair
+ * - multiplicar
+ * - dividir
+ * - sair
+ * O programa só pode terminar quando o usuário selecionar a opção sair
+ * Depois de realizar uma das operações matemática o sistema de exibir novamente o menu
+ * O programa pode ter apenas uma classe mas deve ter mais de 1 método
+ * Ter testes para cada operação
+ * O projeto deve estar no GITHUB
+ * 
+ */
+
+package br.com.desafio1.calculadora;
+
+import java.util.Scanner;
+
+/**
+ * @author Administrador
+ *
+ */
+public class Calculadora {
+
+	public float somar(float valor1, float valor2) {
+		return valor1 + valor2;
+	}
+
+	public float subtrair(float valor1, float valor2) {
+		return valor1 - valor2;
+	}
+
+	public float dividir(float valor1, float valor2) {		
+		//Double.isNaN(arg0)
+		return valor1 / valor2;
+	}
+
+	public float multiplicar(float valor1, float valor2) {
+		return valor1 * valor2;
+	}
+
+	public static void main(String[] args) {
+		float valor1;
+		float valor2;
+		String operacao = "";
+		System.out.println("Bem vindo à Calculadora no console!");
+
+		while (operacao != "0") {
+
+			System.out.println("\nDigite uma das opções de operação que deseja realizar, considerando:");
+			System.out.println("1- Somar \n2- Subtrair \n3- Dividir \n4- Multiplicar \n0- Sair");
+			Scanner entrada = new Scanner(System.in);
+			operacao = entrada.nextLine();
+
+			if (operacao.equals("1")) {
+				
+				Calculadora calculadora = new Calculadora();
+				System.out.println("Digite o valor 1:");
+				valor1 = entrada.nextFloat();
+				System.out.println("Digite o valor 2:");
+				valor2 = entrada.nextFloat();
+				System.out.println("Resultado da Soma é: " + calculadora.somar(valor1, valor2));
+				
+				
+			} else if (operacao.equals("2")) {
+				Calculadora calculadora = new Calculadora();
+				System.out.println("Digite o valor 1:");
+				valor1 = entrada.nextFloat();
+				System.out.println("Digite o valor 2:");
+				valor2 = entrada.nextFloat();
+				System.out.println("Resultado da Subtração é: "	+ calculadora.subtrair(valor1, valor2));
+			} else if (operacao.equals("3")) {
+				Calculadora calculadora = new Calculadora();
+				System.out.println("Digite o valor 1:");
+				valor1 = entrada.nextFloat();
+				System.out.println("Digite o valor 2:");
+				valor2 = entrada.nextFloat();
+				System.out.println("Resultado da Divisão é: " + calculadora.dividir(valor1, valor2));
+			} else if (operacao.equals("4")) {
+				System.out.println("Digite o valor 1:");
+				valor1 = entrada.nextFloat();
+				System.out.println("Digite o valor 2:");
+				valor2 = entrada.nextFloat();
+				Calculadora calculadora = new Calculadora();
+				System.out.println("Resultado da Multiplicação  é: " + calculadora.multiplicar(valor1, valor2));
+			} else if (operacao.equals("0")) {
+				System.out.println("Você encerrou a calculadora!");
+				return;
+			} else {
+				System.out.println("Operação do tipo inválida");
+
+			}
+
+		}
+
+	}
+
+
+}
