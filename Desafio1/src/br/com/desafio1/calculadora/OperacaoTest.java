@@ -27,11 +27,10 @@ public class OperacaoTest {
 		assertEquals(2,	calculadoraTest.dividir(4, 2), 0);
 	}
 	
-	@Test
+	@Test(expected = ArithmeticException.class)
 	public void testeDividirPorZero(){
-		Operacao calculadoraTest = new Operacao();
-		assertEquals(0,	calculadoraTest.dividir(4, 0), 0);
-	}	
+		int v1 = 2/0;
+		}	
 	
 	
 	@Test
