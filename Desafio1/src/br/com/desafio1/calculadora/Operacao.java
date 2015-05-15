@@ -12,11 +12,9 @@ public class Operacao {
 	}
 
 	public float dividir(float valor1, float valor2) {
-		Float.isNaN(valor2);
-		if(valor2 == 0){
-			return 0;
-		}
-		return valor1 / valor2;
+		float resultado = valor1 /valor2;
+		return resultado = (valor2 == 0) ? 0 :resultado;
+				
 	}
 
 	public float multiplicar(float valor1, float valor2) {
