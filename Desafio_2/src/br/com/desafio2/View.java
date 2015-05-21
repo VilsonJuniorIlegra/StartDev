@@ -9,7 +9,7 @@ public class View {
 	
 	public View(){
 		entrada = new Scanner(System.in);
-		pessoas = new Pessoa[2];
+		pessoas = new Pessoa[10];
 	}
 	
 	public void executar(){
@@ -37,33 +37,38 @@ public class View {
 				return;
 			}
 			else{
-				System.out.println("Esta opcao é inválida!");
+				System.out.println("Esta opção é inválida!");
 			}
 		}
 	}
 
-
 	private void adicionar() {		
-		System.out.println("Informe o nome da pessoa: ");
+		System.out.println("Informe o nome da pessoa:");
 		String nome = entrada.nextLine();
-		System.out.println("Informe a idade da pessoa: ");
-		int idade = Integer.parseInt(entrada.nextLine());
+		System.out.println("Informe a idade da pessoa:");
+		String nextLine = entrada.nextLine();
+		if(isNumber){
+		int idade = Integer.parseInt(nextLine);
+		}
 		int index = pesquisaPosicaoNula();
 		pessoas[index] = new Pessoa(nome, idade);
 	}
-
+	
 	private int pesquisaPosicaoNula(){
 		for (int i = 0; i < pessoas.length; i++) {
 			if (pessoas[i] == null) {
 				return i;
 			}
 		}
-		return 11;
-	}
-	
+		return 99;
+	}	
+
 	private void editar() {
 		System.out.println("Informe o nome da pessoa a ser alterada:");
 		String nomeAlterado = entrada.nextLine();
+		int i = pesquisaIndexPeloNome(nomeAlterado);
+		System.out.println();
+		/*
 		for(int i = 0; i < pessoas.length; i++){
 			if(nomeAlterado.equals(pessoas[i].getNome())){
 				System.out.println("Informe o novo nome:");
@@ -74,18 +79,23 @@ public class View {
 				pessoas[i].setIdade(novaIdade);
 				break;
 			}
-		}
+		}*/
 	}
 
 	private void remover() {
 		System.out.println("Informe o nome a ser removido:");
 		String nomeRemovido = entrada.nextLine();
+		int i = pesquisaIndexPeloNome(nomeRemovido);
+		pessoas[i] = null;
+	}
+	
+	private int pesquisaIndexPeloNome(String nome){
 		for(int i = 0; i < pessoas.length; i++){
-			if(nomeRemovido.equals(pessoas[i].getNome())){
-				pessoas[i] = null;
-				break;
+			if(pessoas[i] != null && nome.equals(pessoas[i].getNome())){
+				return i;
 			}
 		}
+		return 99;
 	}
 
 	private void listar() {
