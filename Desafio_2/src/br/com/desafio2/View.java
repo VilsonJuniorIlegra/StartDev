@@ -2,15 +2,13 @@ package br.com.desafio2;
 
 import java.util.Scanner;
 
-import javax.management.RuntimeErrorException;
-
 public class View {
 	private Scanner entrada;
 	private Pessoa[] pessoas;
 	
 	public View(){
 		entrada = new Scanner(System.in);
-		pessoas = new Pessoa[1];
+		pessoas = new Pessoa[3];
 	}
 	
 	public void executar(){
@@ -98,6 +96,7 @@ public class View {
 		int novaIdade = Integer.parseInt(entrada.nextLine());
 		pessoas[i].setIdade(novaIdade);
 	}
+	
 
 	private void removerPessoa() {
 		String nomeRemove = informarNome();
