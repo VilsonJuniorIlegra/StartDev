@@ -2,14 +2,15 @@ package br.com.desafio2;
 
 import java.util.Scanner;
 
+import javax.management.RuntimeErrorException;
+
 public class View {
-	
 	private Scanner entrada;
 	private Pessoa[] pessoas;
 	
 	public View(){
 		entrada = new Scanner(System.in);
-		pessoas = new Pessoa[10];
+		pessoas = new Pessoa[1];
 	}
 	
 	public void executar(){
@@ -17,23 +18,23 @@ public class View {
 		System.out.println("Gerenciador de Pessoas");
 
 		while (opcao != "0") {
-			System.out.println("Selecione a opção desejada:\n1. Cadastrar\n2. Editar\n3. Excluir\n4. Listar\n5. Sair");
+			System.out.println("Selecione a opção desejada:\n1. Cadastrar\n2. Editar\n3. Excluir\n4. Listar\n0. Sair");
 			opcao = entrada.nextLine();
 
 			if (opcao.equals("1")) {
-				adicionar();
+				cadastrarPessoa();
 			}
 			else if (opcao.equals("2")){
-				editar();
+				editarPessoa();
 			}
 			else if(opcao.equals("3")){
-				remover();
+				removerPessoa();
 			}
 			else if(opcao.equals("4")){
-				listar();
+				listarPessoa();
 			}
 			else if(opcao.equals("0")){
-				System.out.println("Você saiu do cadastro de pessoas!");
+				sairDoPrograma();
 				return;
 			}
 			else{
@@ -42,20 +43,45 @@ public class View {
 		}
 	}
 
-	private void adicionar() {		
-		System.out.println("Informe o nome da pessoa:");
-		String nome = entrada.nextLine();
+	private void cadastrarPessoa() {		
+		String nome = informarNome();
 		System.out.println("Informe a idade da pessoa:");
-		String nextLine = entrada.nextLine();
-		if(isNumber){
-		int idade = Integer.parseInt(nextLine);
+		int idade = Integer.parseInt(entrada.nextLine());
+		
+		boolean idadeValida = validarIdade(idade);
+		boolean dentroDoLimite = ehPossivelAdicionarPessoa();
+		
+		if(idadeValida && dentroDoLimite){
+			int index = pesquisaPosicaoNula();
+			pessoas[index] = new Pessoa(nome, idade);
 		}
-		int index = pesquisaPosicaoNula();
-		pessoas[index] = new Pessoa(nome, idade);
+		
 	}
 	
-	private int pesquisaPosicaoNula(){
-		for (int i = 0; i < pessoas.length; i++) {
+	private boolean ehPossivelAdicionarPessoa(){
+		for(int i = 0; i < pessoas.length; i++){
+			if (pessoas[i] == null) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private boolean validarIdade(int idade) {
+		boolean isValido = true;
+		if(idade < 0){
+			isValido = false;
+			System.out.println("Número negativo é inválido.\n");
+		}
+		else if(idade > 120){
+			isValido = false;
+			System.out.println("A idade máxima é até 120.\n");
+		}
+		return isValido;
+	}
+	
+	private int pesquisaPosicaoNula(){		
+		for(int i = 0; i < pessoas.length; i++){
 			if (pessoas[i] == null) {
 				return i;
 			}
@@ -63,32 +89,22 @@ public class View {
 		return 99;
 	}	
 
-	private void editar() {
-		System.out.println("Informe o nome da pessoa a ser alterada:");
-		String nomeAlterado = entrada.nextLine();
-		int i = pesquisaIndexPeloNome(nomeAlterado);
-		System.out.println();
-		/*
-		for(int i = 0; i < pessoas.length; i++){
-			if(nomeAlterado.equals(pessoas[i].getNome())){
-				System.out.println("Informe o novo nome:");
-				String novoNome = entrada.nextLine();
-				pessoas[i].setNome(novoNome);
-				System.out.println("E a nova idade:");
-				int novaIdade = Integer.parseInt(entrada.nextLine());
-				pessoas[i].setIdade(novaIdade);
-				break;
-			}
-		}*/
+	private void editarPessoa() {
+		String nomeAltera = informarNome();
+		int i = pesquisaIndexPeloNome(nomeAltera);
+		String novoNome = informarNome();
+		pessoas[i].setNome(novoNome);
+		System.out.println("E a idade:");
+		int novaIdade = Integer.parseInt(entrada.nextLine());
+		pessoas[i].setIdade(novaIdade);
 	}
 
-	private void remover() {
-		System.out.println("Informe o nome a ser removido:");
-		String nomeRemovido = entrada.nextLine();
-		int i = pesquisaIndexPeloNome(nomeRemovido);
+	private void removerPessoa() {
+		String nomeRemove = informarNome();
+		int i = pesquisaIndexPeloNome(nomeRemove);
 		pessoas[i] = null;
 	}
-	
+
 	private int pesquisaIndexPeloNome(String nome){
 		for(int i = 0; i < pessoas.length; i++){
 			if(pessoas[i] != null && nome.equals(pessoas[i].getNome())){
@@ -98,7 +114,13 @@ public class View {
 		return 99;
 	}
 
-	private void listar() {
+	private String informarNome() {
+		System.out.println("Informe o nome da pessoa:");
+		String nome = entrada.nextLine();
+		return nome;
+	}
+	
+	private void listarPessoa() {
 		for (int i = 0; i < pessoas.length; i++) {
 			if(pessoas[i] != null){
 				System.out.println(pessoas[i]);
@@ -106,5 +128,8 @@ public class View {
 		}
 	}
 
-
+	private void sairDoPrograma() {
+		System.out.println("Você saiu do cadastro de pessoas!");
+		return;
+	}
 }
