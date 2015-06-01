@@ -1,0 +1,41 @@
+package br.com.desafio2;
+
+public class PessoaArrayDao implements PessoaDao{
+	
+	private Pessoa[] pessoas;
+	
+	public PessoaArrayDao(){
+		pessoas = new Pessoa[10];
+	}
+
+	@Override
+	public Pessoa getByName(String nome) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteByName(String nome) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Pessoa[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

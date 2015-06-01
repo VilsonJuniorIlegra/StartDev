@@ -1,0 +1,16 @@
+package br.com.desafio2;
+
+public class PessoaArrayDaoValidator {
+	private PessoaArrayDao dao;
+	
+	public PessoaArrayDaoValidator(){
+		dao = new PessoaArrayDao();
+	}
+	
+	public boolean dentroDoLimite(){
+		if(dao.pesquisaPosicaoNula() == 99){
+			return false;
+		}
+		return true;
+	}
+}
