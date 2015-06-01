@@ -2,7 +2,7 @@ package br.com.desafio2;
 
 public class PessoaArrayDao implements PessoaDao{
 	
-	private static Pessoa[] pessoas = new Pessoa[10] ;
+	private static Pessoa[] pessoas = new Pessoa[10];
 	
 	@Override
 	public Pessoa getByName(String nome) {
@@ -11,12 +11,28 @@ public class PessoaArrayDao implements PessoaDao{
 	}
 
 	@Override
+	public void save(Pessoa pessoa) {
+		int index = pesquisaPosicaoNula();
+		pessoas[index] = pessoa;
+	}
+
+	@Override
+	public void update(Pessoa pessoa) {
+		int i = pesquisaIndexPeloNome(pessoa.getNome());
+		pessoas[i] = pessoa;
+	}
+
+	@Override
 	public void deleteByName(String nome) {
 		int i = pesquisaIndexPeloNome(nome);
 		pessoas[i] = null;
-		
 	}
-	
+		
+	@Override
+	public Pessoa[] getAll() {
+		return pessoas;
+	}
+
 	private int pesquisaIndexPeloNome(String nome){
 		for(int i = 0; i < pessoas.length; i++){
 			if(pessoas[i] != null && nome.equals(pessoas[i].getNome())){
@@ -24,17 +40,6 @@ public class PessoaArrayDao implements PessoaDao{
 			}
 		}
 		return 99;
-	}
-	
-	@Override
-	public Pessoa[] getAll() {
-		return pessoas;
-	}
-
-	@Override
-	public void save(Pessoa pessoa) {
-		int index = pesquisaPosicaoNula();
-		pessoas[index] = pessoa;
 	}
 	
 	private int pesquisaPosicaoNula(){		
@@ -45,11 +50,4 @@ public class PessoaArrayDao implements PessoaDao{
 		}
 		return 99;
 	}	
-	
-	@Override
-	public void update(Pessoa pessoa) {
-		int i = pesquisaIndexPeloNome(pessoa.getNome());
-		pessoas[i] = pessoa;
-	}
-
 }

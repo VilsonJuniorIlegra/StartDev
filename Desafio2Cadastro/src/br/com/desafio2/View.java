@@ -3,10 +3,15 @@ package br.com.desafio2;
 import java.util.Scanner;
 
 public class View {
-	private Scanner entrada;
 	
+	private Scanner entrada;
+	private PessoaArrayDao dao;
+	private PessoaArrayDaoValidator daoValidator;
+
 	public View(){
 		entrada = new Scanner(System.in);
+		dao = new PessoaArrayDao();
+		daoValidator = new PessoaArrayDaoValidator();
 	}
 	
 	public void executar(){
@@ -46,33 +51,42 @@ public class View {
 		return entrada.nextLine();
 	}
 
-	private void cadastrarPessoa() {		
-		String nome = informarNome();
-		int idade = informarIdade();
-		boolean idadeValida = validarIdade(idade);
-		if(idadeValida){
-			Pessoa pessoa = new Pessoa(nome, idade);
-			PessoaArrayDao dao = new PessoaArrayDao();
-			dao.save(pessoa);
+	private void cadastrarPessoa() {
+		if(daoValidator.dentroDoLimite()){
+			String nome = informarNome();
+			int idade = informarIdade();
+			boolean idadeValida = validarIdade(idade);
+			if(idadeValida){
+				Pessoa pessoa = new Pessoa(nome, idade);
+				dao.save(pessoa);
+			}
+		}else{
+			System.out.println("\nNão há espaço para cadastrar.\n");
 		}
 	}
 	
 	private void editarPessoa() {
 		String nome = informarNome();
-		System.out.println("E a idade:");
-		int novaIdade = Integer.parseInt(entrada.nextLine());
-		PessoaArrayDao dao = new PessoaArrayDao();
-		Pessoa pessoa = new Pessoa(nome,novaIdade);
-		dao.update(pessoa);
+		if(daoValidator.existeNome(nome)){
+			System.out.println("E a idade:");
+			int novaIdade = Integer.parseInt(entrada.nextLine());
+			Pessoa pessoa = new Pessoa(nome,novaIdade);
+			dao.update(pessoa);
+		}else{
+			System.out.println("Nome não existe.");
+		}
 	}
 	
 	private void removerPessoa() {
-		PessoaArrayDao dao = new PessoaArrayDao();
-		dao.deleteByName(informarNome());
+		String nome = informarNome();
+		if(daoValidator.existeNome(nome)){
+			dao.deleteByName(nome);
+		}else{
+			System.out.println("Nome não existe.");
+		}
 	}
 	
 	private void listarPessoa() {
-		PessoaArrayDao dao = new PessoaArrayDao();
 		Pessoa[] pessoas = dao.getAll();
 		for(int i = 0; i < pessoas.length; i++){
 			if(pessoas[i] != null){
@@ -82,9 +96,13 @@ public class View {
 	}
 	
 	private void visualizarPessoa(){
-		PessoaArrayDao dao = new PessoaArrayDao();
-		Pessoa pessoa = dao.getByName(informarNome());
-		System.out.println(pessoa);
+		String nome = informarNome();
+		if(daoValidator.existeNome(nome)){
+			Pessoa pessoa = dao.getByName(nome);
+			System.out.println(pessoa);
+		}else{
+			System.out.println("Nome não existe.");
+		}
 	}
 	
 	private String informarNome() {
@@ -94,7 +112,13 @@ public class View {
 	
 	private int informarIdade(){
 		System.out.println("Informe a idade da pessoa:");
-		return Integer.parseInt(entrada.nextLine());
+		try{
+			return Integer.parseInt(entrada.nextLine());
+		}
+		catch(NumberFormatException e){
+			System.out.println("Não é permitido letra.");
+		}
+		return 0;
 	}
 	
 	private boolean validarIdade(int idade) {
